@@ -1,0 +1,504 @@
+/* Didact Gothic per testi piccoli / Lilita One per testi grandi */
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lilita+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Nasconde la scrollbar per tutti gli elementi */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nasconde la scrollbar per Internet Explorer, Edge e Firefox */
+html,
+body {
+  scrollbar-width: none; /* Per Firefox */
+  -ms-overflow-style: none; /* Per Internet Explorer e Edge */
+}
+
+/* Background img, position, size, repeat, attachment */
+body {
+  max-width: 100vw;
+  background: url("media/lacustri_pfp.png") 40% 15% / cover no-repeat fixed;
+  color: #f6efef;
+  font-family: Arial, Helvetica, sans-serif;
+  text-wrap: balance;
+}
+
+@media (max-width: 1000px) {
+  .emote,
+  svg {
+    display: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav a {
+  font-family: "Lilita One";
+}
+
+a {
+  color: #f6efef;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+#navbar {
+  transition: background-color 0.5s ease;
+}
+
+nav {
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 86, 24),
+    rgba(255, 137, 22, 1)
+  );
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+nav ul a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+
+nav a {
+  font-size: 1.2em;
+  color: #f6efef;
+}
+
+nav a:hover {
+  backdrop-filter: brightness(1.2);
+  transition: backdrop-filter linear 0.3s;
+}
+
+nav .logo {
+  float: left;
+  font-size: 1.5em;
+  padding: 17px 20px;
+  text-decoration: none;
+}
+
+nav .navmenu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.4s ease-out;
+}
+
+nav .menu-icon {
+  padding: 28px 20px;
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+nav .menu-icon .nav-icon {
+  background-color: #f6efef;
+  display: block;
+  width: 18px;
+  height: 2px;
+  position: relative;
+  transition: background-color 0.2s ease-out;
+}
+
+nav .menu-icon .nav-icon::before,
+nav .menu-icon .nav-icon::after {
+  background-color: #f6efef;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s ease-out;
+  position: absolute;
+}
+
+nav .menu-icon .nav-icon::before {
+  top: 5px;
+}
+
+nav .menu-icon .nav-icon::after {
+  top: -5px;
+}
+
+.menu-button {
+  display: none;
+  margin-top: 20px;
+}
+
+nav .menu-button:checked ~ .navmenu {
+  max-height: 100vh;
+}
+
+nav .menu-button:checked ~ .menu-icon .nav-icon {
+  background-color: transparent;
+}
+
+nav .menu-button:checked ~ .menu-icon .nav-icon::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+nav .menu-button:checked ~ .menu-icon .nav-icon::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.no-trasparent-navbar {
+  background-color: white;
+}
+
+@media (min-width: 900px) {
+  /* Navbar */
+  nav li {
+    float: left;
+  }
+
+  nav li a {
+    padding: 20px 20px;
+  }
+
+  nav .navmenu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+
+  nav .menu-icon {
+    display: none;
+  }
+
+  nav li {
+    border: none;
+  }
+
+  .nav:hover {
+    background-color: white;
+  }
+}
+
+/* Main */
+main {
+  margin-top: 10vh;
+  text-align: center;
+  height: 370vh;
+}
+
+/* Greet */
+.greet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  animation: greet 3s forwards;
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc,
+    0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc,
+    0 8px 0 #cccccc, 0 9px 0 #cccccc;
+  overflow: hidden;
+  font-size: 3vh;
+}
+
+@keyframes greet {
+  0% {
+    opacity: 0;
+    scale: 0;
+    rotate: 0;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.5;
+    rotate: 3turn;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+/* Scroll animation */
+.elemento {
+  opacity: 0 !important;
+  transition: opacity 1s ease-out !important;
+}
+
+.elemento.visibile {
+  opacity: 1 !important;
+  animation: apparizione 1s forwards;
+}
+
+@keyframes apparizione {
+  from {
+    position: relative;
+    top: 100px;
+  }
+
+  to {
+    position: relative;
+    top: 0px;
+  }
+}
+
+/* Intro */
+.intro {
+  margin: 0 auto !important;
+}
+
+.faq-container.intro {
+  font-family: "Didact Gothic" !important;
+  min-height: 50vh;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro h3 {
+  font-size: 5vh !important;
+}
+
+.intro .faq {
+  border: none !important;
+}
+
+.faq {
+  max-width: 700px;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question h3 {
+  font-size: 5vh;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
+
+.answer p {
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 3vh;
+}
+
+.faq.active .answer {
+  max-height: 1000px;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translate(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+/* Guida */
+.guida,
+.chat,
+.vocali,
+.regolamento,
+.perks,
+.donazioni {
+  width: 80%;
+  margin: auto;
+  margin-top: 20vh;
+  line-height: 1.5;
+  font-size: 3vh;
+  text-align: center;
+}
+
+/* Pagina Info */
+.regolamento,
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.regole-topic {
+  margin-top: 5vh;
+}
+
+.container h1 {
+  font-size: 5vh;
+}
+
+.topic {
+  margin: 15vh auto;
+  font-size: 3vh;
+  width: 80%;
+  line-height: 1.5;
+}
+
+span[data-title]:hover::after {
+  content: attr(data-title);
+  z-index: 100;
+}
+
+/* Faq */
+section.faq-container {
+  min-height: 100vh;
+  width: 80%;
+  margin: 15vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 2rem 0rem;
+}
+
+.faq {
+  max-width: 700px;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f6efef;
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question h3 {
+  font-size: 1.8rem;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
+
+.answer p {
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.faq.active .answer {
+  max-height: 1000px;
+  animation: fade 1s ease-in-out;
+}
+
+.faq.active svg {
+  transform: rotate(180deg);
+}
+
+svg {
+  transition: transform 0.5s ease-in;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translate(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+/* Perks */
+.perks h1,
+.donazioni h1 {
+  font-size: 7vh;
+}
+
+.perks-box {
+  margin: 10vh auto;
+}
+
+.perks-box p {
+  margin-top: 5vh;
+}
+
+.perks-box:last-child {
+  margin-bottom: 5vh;
+}
+
+/* Donazioni */
+.video {
+  width: 90%;
+  margin: 10vh auto;
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  max-width: 100%;
+  max-height: 50vh;
+  height: auto;
+}
+
+/* Media query */
+@media (min-width: 768px) {
+  /* Homepage */
+  main {
+    height: 300vh;
+  }
+
+  .guida,
+  .chat,
+  .vocali,
+  .perks,
+  .donazioni,
+  .container {
+    width: 70%;
+  }
+
+  .greet {
+    font-size: 3.5vh;
+  }
+
+  /* Info */
+  .regole p {
+    width: 70%;
+    margin: auto;
+  }
+}
